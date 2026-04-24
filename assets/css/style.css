@@ -1,0 +1,304 @@
+:root {
+  --bg-sinopia: hsl(17, 100%, 44%);
+  --bg-sinopia-alpha-90: hsla(17, 100%, 44%, 0.9);
+  --bg-sinopia-alpha-7: hsla(17, 100%, 44%, 0.07);
+  --bg-rich-black-fogra-29: hsl(207, 24%, 7%);
+  --bg-rich-black-fogra-29-alpha-50: hsla(207, 24%, 7%, 0.5);
+  --bg-white: hsl(0, 0%, 100%);
+  --bg-isabelline: hsl(30, 43%, 97%);
+  --bg-seashell: hsl(15, 80%, 96%);
+  --bg-light-gray: hsl(0, 0%, 80%);
+  --bg-black: hsl(0, 0%, 0%);
+  
+  --text-white: hsl(0, 0%, 100%);
+  --text-black: hsl(0, 0%, 0%);
+  --text-sinopia: hsl(17, 100%, 44%);
+  --text-rich-black-fogra-29: hsl(207, 24%, 7%);
+  --text-granite-gray: hsl(0, 0%, 40%);
+  
+  --border-white: hsl(0, 0%, 100%);
+  --border-white-alpha-50: hsla(0, 0%, 100%, 0.5);
+  --border-cultured: hsl(0, 0%, 93%);
+  --border-platinum: hsl(30, 9%, 87%);
+  
+  --fontFamily-opensans: 'Open Sans', sans-serif;
+  --fontFamily-forum: 'Forum', cursive;
+  
+  --section-spacing: 80px;
+
+  --shadow: 0px 4px 40px hsla(0, 0%, 0%, 0.1);
+
+  --transition-1: 250ms ease;
+  --transition-2: 500ms ease;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(207, 24%, 7%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(17, 100%, 44%);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(17, 100%, 55%);
+}
+
+
+::selection {
+  background: hsla(17, 100%, 44%, 0.3);
+  color: hsl(207, 24%, 7%);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#header.scrolled {
+  background: hsla(207, 24%, 7%, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+#header.scrolled .nav-link {
+  color: hsl(0, 0%, 100%);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(3deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s ease-in-out infinite;
+}
+
+/* Hero gradient text glow effect */
+#home h1 .text-sinopia {
+  text-shadow: 0 0 40px hsla(17, 100%, 44%, 0.3);
+}
+
+.popular-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.popular-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.popular-card:hover::before {
+  left: 100%;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 0;
+  background: hsl(17, 100%, 44%);
+  border-radius: 3px;
+  transition: height 0.3s ease;
+}
+
+.menu-item:hover::before {
+  height: 60%;
+}
+
+.schedule-card {
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.schedule-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+
+#reservation-form input:focus {
+  box-shadow: 0 0 0 3px hsla(17, 100%, 44%, 0.1);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(0.4);
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover,
+input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  filter: invert(0);
+}
+
+footer a {
+  position: relative;
+}
+
+footer .space-y-3 a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: hsl(17, 100%, 44%);
+  transition: width 0.3s ease;
+}
+
+footer .space-y-3 a:hover::after {
+  width: 100%;
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#back-to-top::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 2px solid hsl(17, 100%, 44%);
+  opacity: 0;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  
+  .animate-float,
+  .animate-float-delayed,
+  .animate-bounce-slow {
+    animation: none;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+@media (max-width: 639px) {
+  #home h1 {
+    font-size: 2.8rem;
+  }
+  
+  .schedule-card {
+    padding: 1.5rem;
+  }
+}
+
+@media print {
+  #header, #back-to-top, #mobile-nav {
+    display: none !important;
+  }
+  
+  body {
+    color: #000;
+    background: #fff;
+  }
+}

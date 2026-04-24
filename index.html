@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Crispy - Chicken Burgers | Delicious Fast Food Restaurant</title>
+  <meta name="description"
+    content="Crispy serves the best chicken burgers, pizzas, seafood and more. Book a table or order online for a delicious dining experience.">
+
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Forum&family=Open+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            sinopia: {
+              DEFAULT: 'hsl(17, 100%, 44%)',
+              90: 'hsla(17, 100%, 44%, 0.9)',
+              7: 'hsla(17, 100%, 44%, 0.07)',
+            },
+            'rich-black': {
+              DEFAULT: 'hsl(207, 24%, 7%)',
+              50: 'hsla(207, 24%, 7%, 0.5)',
+            },
+            isabelline: 'hsl(30, 43%, 97%)',
+            seashell: 'hsl(15, 80%, 96%)',
+            'light-gray': 'hsl(0, 0%, 80%)',
+            cultured: 'hsl(0, 0%, 93%)',
+            platinum: 'hsl(30, 9%, 87%)',
+            'granite-gray': 'hsl(0, 0%, 40%)',
+          },
+          fontFamily: {
+            opensans: ['"Open Sans"', 'sans-serif'],
+            forum: ['"Forum"', 'cursive'],
+          },
+          fontSize: {
+            '4xl-custom': '4.0rem',
+            '3.6xl': '3.6rem',
+            '3.5xl': '3.5rem',
+            '2.7xl': '2.7rem',
+            '2.4xl': '2.4rem',
+            '1.8xl': '1.8rem',
+            '1.6xl': '1.6rem',
+            '1.4xl': '1.4rem',
+          },
+          borderRadius: {
+            5: '5px',
+            8: '8px',
+            12: '12px',
+          },
+          boxShadow: {
+            card: '0px 4px 40px hsla(0, 0%, 0%, 0.1)',
+          },
+          transitionDuration: {
+            250: '250ms',
+            500: '500ms',
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</head>
+
+<body class="font-opensans text-granite-gray bg-white overflow-x-hidden">
+
+  <header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-transparent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <a href="#" id="header-logo">
+          <img src="./assets/images/logo.svg" alt="Crispy home" class="h-10 md:h-12">
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8">
+          <ul class="flex items-center gap-8">
+            <li><a href="#home"
+                class="nav-link text-white font-semibold text-sm uppercase tracking-wider hover:text-sinopia transition-colors duration-250">Home</a>
+            </li>
+            <li><a href="#menu"
+                class="nav-link text-white font-semibold text-sm uppercase tracking-wider hover:text-sinopia transition-colors duration-250">Menu</a>
+            </li>
+            <li><a href="#about"
+                class="nav-link text-white font-semibold text-sm uppercase tracking-wider hover:text-sinopia transition-colors duration-250">About</a>
+            </li>
+            <li><a href="#shop"
+                class="nav-link text-white font-semibold text-sm uppercase tracking-wider hover:text-sinopia transition-colors duration-250">Shop</a>
+            </li>
+            <li><a href="#blog"
+                class="nav-link text-white font-semibold text-sm uppercase tracking-wider hover:text-sinopia transition-colors duration-250">Blog</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="#reservation"
+            class="group flex items-center gap-2 bg-sinopia text-white text-sm font-semibold uppercase tracking-wider px-6 py-3 rounded-5 hover:bg-white hover:text-sinopia transition-all duration-250">
+            Book A Table
+            <ion-icon name="arrow-forward-outline" aria-hidden="true"
+              class="text-lg group-hover:translate-x-1 transition-transform duration-250"></ion-icon>
+          </a>
+          <a href="tel:+919876543210"
+            class="flex items-center gap-2 text-white hover:text-sinopia transition-colors duration-250">
+            <ion-icon name="call-outline" aria-hidden="true" class="text-xl"></ion-icon>
+            <span class="text-sm font-semibold">+91 98765 43210</span>
+          </a>
+        </div>
+
+        <button id="menu-open-btn" aria-label="open menu"
+          class="lg:hidden text-white text-3xl hover:text-sinopia transition-colors duration-250">
+          <ion-icon name="menu-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav"
+      class="fixed inset-0 bg-rich-black z-[60] flex flex-col translate-x-full transition-transform duration-500 lg:hidden">
+      <div class="flex items-center justify-between px-6 py-5 border-b border-white/10">
+        <a href="#">
+          <img src="./assets/images/logo.svg" alt="Crispy home" class="h-10">
+        </a>
+        <button id="menu-close-btn" aria-label="close menu"
+          class="text-white text-3xl hover:text-sinopia transition-colors duration-250">
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+      </div>
+      <nav class="flex-1 flex flex-col justify-center items-center gap-8">
+        <a href="#home"
+          class="mobile-nav-link text-white text-2xl font-forum tracking-wider hover:text-sinopia transition-colors duration-250">Home</a>
+        <a href="#menu"
+          class="mobile-nav-link text-white text-2xl font-forum tracking-wider hover:text-sinopia transition-colors duration-250">Menu</a>
+        <a href="#about"
+          class="mobile-nav-link text-white text-2xl font-forum tracking-wider hover:text-sinopia transition-colors duration-250">About</a>
+        <a href="#shop"
+          class="mobile-nav-link text-white text-2xl font-forum tracking-wider hover:text-sinopia transition-colors duration-250">Shop</a>
+        <a href="#blog"
+          class="mobile-nav-link text-white text-2xl font-forum tracking-wider hover:text-sinopia transition-colors duration-250">Blog</a>
+      </nav>
+      <div class="px-6 py-8 border-t border-white/10">
+        <a href="#reservation"
+          class="flex items-center justify-center gap-2 bg-sinopia text-white font-semibold uppercase tracking-wider px-6 py-4 rounded-5 w-full hover:bg-white hover:text-sinopia transition-all duration-250">
+          Book A Table
+          <ion-icon name="arrow-forward" aria-hidden="true" class="text-lg"></ion-icon>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+
+    <section id="home" class="relative bg-rich-black min-h-screen flex items-center overflow-hidden">
+      <div class="absolute inset-0 opacity-5"
+        style="background-image: url('./assets/images/dot-bg.png'); background-repeat: repeat;"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-32 lg:py-0">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="relative z-10 text-center lg:text-left">
+            <img src="./assets/images/down-arrow.png" alt="arrow" class="hidden lg:block mb-4 animate-bounce-slow">
+
+            <h1
+              class="font-forum text-white text-5xl sm:text-6xl lg:text-7xl xl:text-[5.5rem] leading-tight mb-6 reveal-up">
+              Crispy <br class="hidden sm:block">
+              <span class="text-sinopia">Chicken</span> <br>
+              Burgers
+            </h1>
+
+            <p class="text-white/70 text-base sm:text-lg max-w-md mx-auto lg:mx-0 mb-10 leading-relaxed reveal-up"
+              style="animation-delay: 0.2s;">
+              Savour the crunch of perfectly spiced chicken burgers, crafted with fresh ingredients and bold Indian flavours
+            </p>
+
+            <a href="#menu"
+              class="group inline-flex items-center gap-3 bg-sinopia text-white font-semibold uppercase tracking-wider text-sm px-8 py-4 rounded-5 hover:bg-white hover:text-sinopia transition-all duration-300 reveal-up"
+              style="animation-delay: 0.4s;">
+              Order Now
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-xl group-hover:translate-x-1 transition-transform duration-250"></ion-icon>
+            </a>
+          </div>
+
+          <div class="relative flex justify-center lg:justify-end">
+            <img src="./assets/images/hero-1.jpg" alt="hero-banner"
+              class="w-full max-w-lg lg:max-w-xl rounded-[40px] shadow-2xl relative z-10 reveal-up"
+              style="animation-delay: 0.3s;">
+
+            <img src="./assets/images/hero-shape-1.png" alt="shape"
+              class="absolute -top-10 -right-10 w-32 lg:w-48 animate-float z-0 hidden md:block">
+            <img src="./assets/images/line-1.png" alt="line"
+              class="absolute -bottom-6 -left-6 w-40 lg:w-56 z-0 hidden md:block animate-float-delayed">
+          </div>
+        </div>
+      </div>
+
+      <img src="./assets/images/hero-shape-2.png" alt="shape"
+        class="absolute bottom-0 right-0 w-64 lg:w-96 opacity-20 pointer-events-none">
+    </section>
+
+
+    <section id="popular" class="py-20 lg:py-28 bg-isabelline">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-16 reveal-up">
+          <p class="text-sinopia font-semibold uppercase tracking-widest text-sm mb-3">Our Popular Food</p>
+          <h2 class="font-forum text-rich-black text-3xl sm:text-4xl lg:text-5xl">Best Category Foods Menu</h2>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6">
+
+          <a href="#"
+            class="group popular-card bg-white rounded-12 p-6 text-center shadow-card hover:bg-sinopia transition-all duration-300 hover:-translate-y-2 reveal-up"
+            style="animation-delay: 0.1s;">
+            <div class="w-16 h-16 mx-auto mb-4">
+              <img src="./assets/images/icon-1.png" alt="Pizza"
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-forum text-rich-black text-xl group-hover:text-white transition-colors duration-300">Pizza
+            </h3>
+            <div
+              class="mt-3 w-8 h-8 mx-auto rounded-full bg-sinopia-7 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-sinopia group-hover:text-white transition-colors duration-300"
+                aria-label="View all product"></ion-icon>
+            </div>
+          </a>
+
+          <a href="#"
+            class="group popular-card bg-white rounded-12 p-6 text-center shadow-card hover:bg-sinopia transition-all duration-300 hover:-translate-y-2 reveal-up"
+            style="animation-delay: 0.15s;">
+            <div class="w-16 h-16 mx-auto mb-4">
+              <img src="./assets/images/icon-2.png" alt="Burger"
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-forum text-rich-black text-xl group-hover:text-white transition-colors duration-300">Burger
+            </h3>
+            <div
+              class="mt-3 w-8 h-8 mx-auto rounded-full bg-sinopia-7 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-sinopia group-hover:text-white transition-colors duration-300"></ion-icon>
+            </div>
+          </a>
+
+          <a href="#"
+            class="group popular-card bg-white rounded-12 p-6 text-center shadow-card hover:bg-sinopia transition-all duration-300 hover:-translate-y-2 reveal-up"
+            style="animation-delay: 0.2s;">
+            <div class="w-16 h-16 mx-auto mb-4">
+              <img src="./assets/images/icon-3.png" alt="Bread"
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-forum text-rich-black text-xl group-hover:text-white transition-colors duration-300">Bread
+            </h3>
+            <div
+              class="mt-3 w-8 h-8 mx-auto rounded-full bg-sinopia-7 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-sinopia group-hover:text-white transition-colors duration-300"></ion-icon>
+            </div>
+          </a>
+
+          <a href="#"
+            class="group popular-card bg-white rounded-12 p-6 text-center shadow-card hover:bg-sinopia transition-all duration-300 hover:-translate-y-2 reveal-up"
+            style="animation-delay: 0.25s;">
+            <div class="w-16 h-16 mx-auto mb-4">
+              <img src="./assets/images/icon-4.png" alt="Seafoods"
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-forum text-rich-black text-xl group-hover:text-white transition-colors duration-300">
+              Seafoods</h3>
+            <div
+              class="mt-3 w-8 h-8 mx-auto rounded-full bg-sinopia-7 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-sinopia group-hover:text-white transition-colors duration-300"></ion-icon>
+            </div>
+          </a>
+
+          <a href="#"
+            class="group popular-card bg-white rounded-12 p-6 text-center shadow-card hover:bg-sinopia transition-all duration-300 hover:-translate-y-2 reveal-up"
+            style="animation-delay: 0.3s;">
+            <div class="w-16 h-16 mx-auto mb-4">
+              <img src="./assets/images/icon-5.png" alt="Coffee"
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-forum text-rich-black text-xl group-hover:text-white transition-colors duration-300">Coffee
+            </h3>
+            <div
+              class="mt-3 w-8 h-8 mx-auto rounded-full bg-sinopia-7 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-sinopia group-hover:text-white transition-colors duration-300"></ion-icon>
+            </div>
+          </a>
+
+          <a href="#"
+            class="group popular-card bg-white rounded-12 p-6 text-center shadow-card hover:bg-sinopia transition-all duration-300 hover:-translate-y-2 reveal-up"
+            style="animation-delay: 0.35s;">
+            <div class="w-16 h-16 mx-auto mb-4">
+              <img src="./assets/images/icon-6.png" alt="Chicken"
+                class="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300">
+            </div>
+            <h3 class="font-forum text-rich-black text-xl group-hover:text-white transition-colors duration-300">Chicken
+            </h3>
+            <div
+              class="mt-3 w-8 h-8 mx-auto rounded-full bg-sinopia-7 flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300">
+              <ion-icon name="arrow-forward" aria-hidden="true"
+                class="text-sinopia group-hover:text-white transition-colors duration-300"></ion-icon>
+            </div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="menu" class="py-20 lg:py-28 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-16 reveal-up">
+          <p class="text-sinopia font-semibold uppercase tracking-widest text-sm mb-3">Best Food Menu</p>
+          <h2 class="font-forum text-rich-black text-3xl sm:text-4xl lg:text-5xl">Choose Your Best Menus</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+
+          <div class="relative reveal-up">
+            <img src="./assets/images/menu-banner.jpg" alt="menu banner"
+              class="w-full rounded-[30px] shadow-2xl object-cover aspect-[4/5]">
+            <div class="absolute inset-0 rounded-[30px] bg-gradient-to-t from-rich-black/40 to-transparent"></div>
+          </div>
+
+          <div class="space-y-0">
+            <div
+              class="group menu-item flex gap-5 p-5 rounded-12 hover:bg-seashell transition-all duration-300 cursor-pointer items-center reveal-up"
+              style="animation-delay: 0.1s;">
+              <div class="flex-shrink-0 w-20 h-20 rounded-12 overflow-hidden shadow-card">
+                <img src="./assets/images/menu-1.png" alt="Hamburger"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-1">
+                  <h3
+                    class="font-forum text-rich-black text-xl lg:text-2xl group-hover:text-sinopia transition-colors duration-300">
+                    Hamburger</h3>
+                  <span class="text-sinopia font-bold text-lg">₹199</span>
+                </div>
+                <p class="text-granite-gray text-sm mb-2 truncate">Classic grilled patty, spiced mayo, fresh veggies</p>
+                <div class="flex items-center gap-2">
+                  <div class="flex text-sinopia text-sm gap-0.5">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <span class="text-granite-gray text-xs">(5k Reviews)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-b border-platinum mx-5"></div>
+
+            <div
+              class="group menu-item flex gap-5 p-5 rounded-12 hover:bg-seashell transition-all duration-300 cursor-pointer items-center reveal-up"
+              style="animation-delay: 0.2s;">
+              <div class="flex-shrink-0 w-20 h-20 rounded-12 overflow-hidden shadow-card">
+                <img src="./assets/images/menu-2.png" alt="Pizza"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-1">
+                  <h3
+                    class="font-forum text-rich-black text-xl lg:text-2xl group-hover:text-sinopia transition-colors duration-300">
+                    Pizza</h3>
+                  <span class="text-sinopia font-bold text-lg">₹349</span>
+                </div>
+                <p class="text-granite-gray text-sm mb-2 truncate">Tandoori paneer, mozzarella, bell peppers</p>
+                <div class="flex items-center gap-2">
+                  <div class="flex text-sinopia text-sm gap-0.5">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star-half-outline"></ion-icon>
+                  </div>
+                  <span class="text-granite-gray text-xs">(4.2k Reviews)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-b border-platinum mx-5"></div>
+
+            <div
+              class="group menu-item flex gap-5 p-5 rounded-12 hover:bg-seashell transition-all duration-300 cursor-pointer items-center reveal-up"
+              style="animation-delay: 0.3s;">
+              <div class="flex-shrink-0 w-20 h-20 rounded-12 overflow-hidden shadow-card">
+                <img src="./assets/images/menu-3.png" alt="Baked Chicken Wings"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-1">
+                  <h3
+                    class="font-forum text-rich-black text-xl lg:text-2xl group-hover:text-sinopia transition-colors duration-300">
+                    Baked Chicken Wings</h3>
+                  <span class="text-sinopia font-bold text-lg">₹299</span>
+                </div>
+                <p class="text-granite-gray text-sm mb-2 truncate">Crispy baked wings, fiery peri-peri glaze</p>
+                <div class="flex items-center gap-2">
+                  <div class="flex text-sinopia text-sm gap-0.5">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                  </div>
+                  <span class="text-granite-gray text-xs">(3.8k Reviews)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="border-b border-platinum mx-5"></div>
+
+            <div
+              class="group menu-item flex gap-5 p-5 rounded-12 hover:bg-seashell transition-all duration-300 cursor-pointer items-center reveal-up"
+              style="animation-delay: 0.4s;">
+              <div class="flex-shrink-0 w-20 h-20 rounded-12 overflow-hidden shadow-card">
+                <img src="./assets/images/menu-4.png" alt="Seafood Pizza"
+                  class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center justify-between mb-1">
+                  <h3
+                    class="font-forum text-rich-black text-xl lg:text-2xl group-hover:text-sinopia transition-colors duration-300">
+                    Seafood Pizza</h3>
+                  <span class="text-sinopia font-bold text-lg">₹449</span>
+                </div>
+                <p class="text-granite-gray text-sm mb-2 truncate">Prawns, calamari, garlic butter crust</p>
+                <div class="flex items-center gap-2">
+                  <div class="flex text-sinopia text-sm gap-0.5">
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star"></ion-icon>
+                    <ion-icon name="star-outline"></ion-icon>
+                  </div>
+                  <span class="text-granite-gray text-xs">(2.5k Reviews)</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="schedule" class="relative py-20 lg:py-28 overflow-hidden">
+      <div class="absolute inset-0">
+        <img src="./assets/images/schedule-banner.jpg" alt="schedule banner" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-rich-black/85"></div>
+      </div>
+
+      <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div class="text-center mb-16 reveal-up">
+          <p class="text-sinopia font-semibold uppercase tracking-widest text-sm mb-3">Working Hour</p>
+          <h2 class="font-forum text-white text-3xl sm:text-4xl lg:text-5xl">Enjoy Our Foods From 6 Days In a Week</h2>
+        </div>
+
+        <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+
+          <div class="schedule-card relative rounded-12 overflow-hidden p-8 text-center group reveal-up"
+            style="animation-delay: 0.1s;">
+            <div class="absolute inset-0 bg-cover bg-center opacity-30"
+              style="background-image: url('./assets/images/schedule-item-bg.png');"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-sinopia/80 to-sinopia/60 group-hover:from-sinopia group-hover:to-sinopia/90 transition-all duration-500">
+            </div>
+            <div class="relative z-10">
+              <h3 class="font-forum text-white text-2xl mb-4">Monday - Friday</h3>
+              <div class="w-12 h-0.5 bg-white/40 mx-auto mb-4"></div>
+              <p class="text-white text-lg font-semibold">09am-6pm</p>
+            </div>
+          </div>
+
+          <div class="schedule-card relative rounded-12 overflow-hidden p-8 text-center group reveal-up"
+            style="animation-delay: 0.2s;">
+            <div class="absolute inset-0 bg-cover bg-center opacity-30"
+              style="background-image: url('./assets/images/schedule-item-bg.png');"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-rich-black/80 to-rich-black/60 group-hover:from-sinopia group-hover:to-sinopia/90 transition-all duration-500">
+            </div>
+            <div class="relative z-10">
+              <h3 class="font-forum text-white text-2xl mb-4">Saturday</h3>
+              <div class="w-12 h-0.5 bg-white/40 mx-auto mb-4"></div>
+              <p class="text-white text-lg font-semibold">08am-7pm</p>
+            </div>
+          </div>
+
+          <div class="schedule-card relative rounded-12 overflow-hidden p-8 text-center group reveal-up"
+            style="animation-delay: 0.3s;">
+            <div class="absolute inset-0 bg-cover bg-center opacity-30"
+              style="background-image: url('./assets/images/schedule-item-bg.png');"></div>
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-rich-black/80 to-rich-black/60 group-hover:from-sinopia group-hover:to-sinopia/90 transition-all duration-500">
+            </div>
+            <div class="relative z-10">
+              <h3 class="font-forum text-white text-2xl mb-4">Sunday</h3>
+              <div class="w-12 h-0.5 bg-white/40 mx-auto mb-4"></div>
+              <p class="text-white text-lg font-semibold">Closed</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <section id="reservation" class="py-20 lg:py-28 bg-seashell">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+          <div class="relative reveal-up">
+            <img src="./assets/images/reservation-banner.jpg" alt="Reservation banner"
+              class="w-full rounded-[30px] shadow-2xl object-cover aspect-[4/5]">
+            <div class="absolute inset-0 rounded-[30px] bg-gradient-to-t from-rich-black/30 to-transparent"></div>
+
+            <img src="./assets/images/hero-shape-1.png" alt="shape"
+              class="absolute -bottom-8 -right-8 w-32 opacity-60 animate-float hidden lg:block">
+          </div>
+
+          <div class="relative reveal-up" style="animation-delay: 0.2s;">
+            <p class="text-sinopia font-semibold uppercase tracking-widest text-sm mb-3">Booking Table</p>
+            <h2 class="font-forum text-rich-black text-3xl sm:text-4xl lg:text-5xl mb-6">Make A Reservations</h2>
+            <p class="text-granite-gray text-base leading-relaxed mb-10 max-w-md">
+              Reserve your table in advance and enjoy a delightful dining experience with family and friends
+            </p>
+
+            <form id="reservation-form" class="space-y-5">
+              <div class="relative">
+                <input type="number" id="person-count" min="1" max="20" placeholder="Person"
+                  class="w-full bg-white border border-platinum rounded-8 px-5 py-4 pl-12 text-rich-black placeholder-granite-gray focus:border-sinopia focus:outline-none focus:ring-2 focus:ring-sinopia/20 transition-all duration-250">
+                <ion-icon name="person-outline"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-sinopia text-xl"></ion-icon>
+              </div>
+
+              <div class="relative">
+                <input type="date" id="reservation-date"
+                  class="w-full bg-white border border-platinum rounded-8 px-5 py-4 pl-12 text-rich-black placeholder-granite-gray focus:border-sinopia focus:outline-none focus:ring-2 focus:ring-sinopia/20 transition-all duration-250 appearance-none">
+                <ion-icon name="calendar-outline"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-sinopia text-xl pointer-events-none"></ion-icon>
+              </div>
+
+              <div class="relative">
+                <input type="time" id="reservation-time"
+                  class="w-full bg-white border border-platinum rounded-8 px-5 py-4 pl-12 text-rich-black placeholder-granite-gray focus:border-sinopia focus:outline-none focus:ring-2 focus:ring-sinopia/20 transition-all duration-250 appearance-none">
+                <ion-icon name="time-outline"
+                  class="absolute left-4 top-1/2 -translate-y-1/2 text-sinopia text-xl pointer-events-none"></ion-icon>
+              </div>
+
+              <button type="submit"
+                class="group flex items-center gap-3 bg-sinopia text-white font-semibold uppercase tracking-wider text-sm px-8 py-4 rounded-5 hover:bg-rich-black transition-all duration-300 w-full sm:w-auto justify-center">
+                Book A Table
+                <ion-icon name="arrow-forward-outline" aria-hidden="true"
+                  class="text-lg group-hover:translate-x-1 transition-transform duration-250"></ion-icon>
+                </button>
+
+              </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-rich-black pt-20 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+
+        <div>
+          <a href="#" class="inline-block mb-6">
+            <img src="./assets/images/logo.svg" alt="Crispy home" class="h-10">
+          </a>
+          <p class="text-white/60 text-sm leading-relaxed mb-6">
+            Contact us via Email
+          </p>
+          <div class="flex items-center gap-2">
+            <input type="email" placeholder="Email Address"
+              class="flex-1 bg-white/10 border border-white/20 rounded-5 px-4 py-3 text-white text-sm placeholder-white/40 focus:border-sinopia focus:outline-none transition-colors duration-250">
+            <button aria-label="Subscribe"
+              class="bg-sinopia text-white p-3 rounded-5 hover:bg-white hover:text-sinopia transition-colors duration-250">
+              <ion-icon name="arrow-forward" class="text-lg"></ion-icon>
+            </button>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="font-forum text-white text-xl mb-6">Quick Links</h3>
+          <ul class="space-y-3">
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">About
+                Company</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Home
+                Shop</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Our Menu
+                (CMS)</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Shop
+                (Ecom)</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Recipes</a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-forum text-white text-xl mb-6">Products</h3>
+          <ul class="space-y-3">
+            <li><a href="#"
+                class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Hamburger</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Chicken
+                Burger</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Vegetable
+                Pizza</a></li>
+            <li><a href="#" class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Chicken
+                Roll</a></li>
+            <li><a href="#"
+                class="text-white/60 text-sm hover:text-sinopia transition-colors duration-250">Ice-Cream</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="font-forum text-white text-xl mb-6">Call for order:</h3>
+          <div class="space-y-4 mb-8">
+            <a href="tel:+919876543210"
+              class="block text-white text-lg font-semibold hover:text-sinopia transition-colors duration-250">+91 98765
+              43210</a>
+            <a href="mailto:hello@crispy.in"
+              class="block text-white/60 text-sm hover:text-sinopia transition-colors duration-250">hello@crispy.in</a>
+          </div>
+          <h3 class="font-forum text-white text-xl mb-3">Location :</h3>
+          <p class="text-white/60 text-sm leading-relaxed">MG Road, Kolkata, West Bengal 700001</p>
+        </div>
+
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8">
+        <p class="text-white/40 text-sm">&copy; 2026 madhurimadas, All Rights Reserved</p>
+        <ul class="flex items-center gap-6">
+          <li><a href="#" class="text-white/40 text-sm hover:text-sinopia transition-colors duration-250">Setting &
+              Privacy</a></li>
+          <li><a href="#" class="text-white/40 text-sm hover:text-sinopia transition-colors duration-250">Faqs</a></li>
+          <li><a href="#" class="text-white/40 text-sm hover:text-sinopia transition-colors duration-250">Food Menu</a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <a href="#home" id="back-to-top" aria-label="back to top"
+    class="fixed bottom-6 right-6 z-50 w-12 h-12 bg-sinopia text-white rounded-full flex items-center justify-center shadow-lg opacity-0 invisible translate-y-4 transition-all duration-300 hover:bg-rich-black">
+    <ion-icon name="chevron-up" aria-hidden="true" class="text-2xl"></ion-icon>
+  </a>
+
+  <script src="./assets/js/script.js"></script>
+
+</body>
+</html>
