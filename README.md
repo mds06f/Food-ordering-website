@@ -1,7 +1,7 @@
 <h1 align="center">🍔 Food Ordering Website</h1>
 
 <p align="center">
-A responsive food ordering web application built using HTML, CSS, and JavaScript.
+A responsive food ordering web application built using HTML5, CSS3 (framework: TailwindCSS), and JavaScript(ES6).
 </p>
 
 <hr>
