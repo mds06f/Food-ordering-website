@@ -70,8 +70,9 @@ git clone https://github.com/mds06f/Food-ordering-website.git
 
 <h2>👩‍💻 Author</h2>
 <p><b>Madhurima Das</b></p>
+<a href = https://github.com/mds06f><p>[<b>Madhurima Das</b>](https://github.com/mds06f)</p>
 
 <hr>
 
-<h2>📌 Note</h2>
-<p>This project is created for learning purposes.</p>
+<h2>⭐ If You Like This Project</h2>
+<p>Don’t forget to star ⭐ the repository - it really helps!</p>
